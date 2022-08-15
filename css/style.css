@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+}
+
+.container{
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.start{
+    position: absolute;
+    background-color: #2195f3d7;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    transition: 0.8s;
+}
+.start.hide{
+    top: -200%;
+}
+.start button{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    background-color: #fff;
+}
+.container .gaming-block{
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin: 30px 10px 30px;
+}
+.game-info{
+    width: 800px;
+    border: 2px solid #2196f3;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 0;
+}
+.game-info .name ,
+.game-info .try {
+    font-size: 22px;
+    padding: 10px;
+}
+.game-info .try.good {
+    color: green;
+    font-weight: bold;
+}
+.game-info .try.bad {
+    color: rgb(128, 0, 0);
+    font-weight: bold;
+}
+.container .gaming-block .block{
+    position: relative;
+    transform-style: preserve-3d;
+    flex: 1 0 150px;
+    height: 150px;
+    transition: transform 0.5s;
+    margin: 5px;
+    cursor: pointer;
+}
+.container .gaming-block .block .front,
+.container .gaming-block .block .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border: 5px solid #2196f3;
+}
+.container .gaming-block .block .front{
+    background-color: #333;
+    text-align: center;
+    line-height: 150px;
+}
+.container .gaming-block .block .front::before{
+    content: "?";
+    color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+}
+.container .gaming-block .block .back{
+    transform: rotateY(180deg);
+}
+.container .gaming-block .block .back img{
+    width: 140px;
+    height: 140px;
+}
+
+.block.stopped{
+    pointer-events: none;
+}
+
+.container .gaming-block .block.cliked,
+.container .gaming-block .block.flip{
+    transform: rotateY(180deg);
+    
+}
+
+
